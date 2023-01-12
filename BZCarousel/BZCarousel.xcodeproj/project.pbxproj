@@ -32,7 +32,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6FB013302970552A00760047 /* libBCarousel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBCarousel.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FB013302970552A00760047 /* libBZCarousel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBZCarousel.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FB0133A2970554200760047 /* BZCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BZCarousel.swift; sourceTree = "<group>"; };
 		6FB0133F297055E900760047 /* BZPageIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BZPageIndicator.swift; sourceTree = "<group>"; };
 		6FB01345297056D500760047 /* Playground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Playground.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,7 +64,7 @@
 		6FB013272970552A00760047 = {
 			isa = PBXGroup;
 			children = (
-				6FB013322970552A00760047 /* BCarousel */,
+				6FB013322970552A00760047 /* BZCarousel */,
 				6FB01346297056D500760047 /* Playground */,
 				6FB013312970552A00760047 /* Products */,
 				6FB01353297056E700760047 /* Frameworks */,
@@ -74,19 +74,19 @@
 		6FB013312970552A00760047 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6FB013302970552A00760047 /* libBCarousel.a */,
+				6FB013302970552A00760047 /* libBZCarousel.a */,
 				6FB01345297056D500760047 /* Playground.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6FB013322970552A00760047 /* BCarousel */ = {
+		6FB013322970552A00760047 /* BZCarousel */ = {
 			isa = PBXGroup;
 			children = (
-				6FB0133C2970559200760047 /* UI Components */,
 				6FB0133A2970554200760047 /* BZCarousel.swift */,
+				6FB0133C2970559200760047 /* UI Components */,
 			);
-			path = BCarousel;
+			path = BZCarousel;
 			sourceTree = "<group>";
 		};
 		6FB0133C2970559200760047 /* UI Components */ = {
@@ -135,9 +135,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6FB0132F2970552A00760047 /* BCarousel */ = {
+		6FB0132F2970552A00760047 /* BZCarousel */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6FB013372970552A00760047 /* Build configuration list for PBXNativeTarget "BCarousel" */;
+			buildConfigurationList = 6FB013372970552A00760047 /* Build configuration list for PBXNativeTarget "BZCarousel" */;
 			buildPhases = (
 				6FB0132C2970552A00760047 /* Sources */,
 				6FB0132D2970552A00760047 /* Frameworks */,
@@ -147,9 +147,9 @@
 			);
 			dependencies = (
 			);
-			name = BCarousel;
+			name = BZCarousel;
 			productName = BCarousel;
-			productReference = 6FB013302970552A00760047 /* libBCarousel.a */;
+			productReference = 6FB013302970552A00760047 /* libBZCarousel.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		6FB01344297056D500760047 /* Playground */ = {
@@ -187,7 +187,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6FB0132B2970552A00760047 /* Build configuration list for PBXProject "BCarousel" */;
+			buildConfigurationList = 6FB0132B2970552A00760047 /* Build configuration list for PBXProject "BZCarousel" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -200,7 +200,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6FB0132F2970552A00760047 /* BCarousel */,
+				6FB0132F2970552A00760047 /* BZCarousel */,
 				6FB01344297056D500760047 /* Playground */,
 			);
 		};
@@ -449,7 +449,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6FB0132B2970552A00760047 /* Build configuration list for PBXProject "BCarousel" */ = {
+		6FB0132B2970552A00760047 /* Build configuration list for PBXProject "BZCarousel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6FB013352970552A00760047 /* Debug */,
@@ -458,7 +458,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6FB013372970552A00760047 /* Build configuration list for PBXNativeTarget "BCarousel" */ = {
+		6FB013372970552A00760047 /* Build configuration list for PBXNativeTarget "BZCarousel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6FB013382970552A00760047 /* Debug */,
