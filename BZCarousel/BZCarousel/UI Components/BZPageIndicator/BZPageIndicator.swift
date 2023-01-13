@@ -65,11 +65,6 @@ struct BZPageIndicator: View {
         }
     }
 
-    private func resetTimer() {
-        timer?.cancel()
-        runAutoSlideIfNeeded()
-    }
-
     private func runAutoSlideIfNeeded() {
         if case .autoSlide(let timeInterval) = configurations.presentation {
             timer = Timer
