@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F23A99329716DD80074B8AE /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F23A99229716DD80074B8AE /* Int.swift */; };
+		6F23A99429716DEE0074B8AE /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F23A99229716DD80074B8AE /* Int.swift */; };
 		6FB0133B2970554200760047 /* BZCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB0133A2970554200760047 /* BZCarousel.swift */; };
 		6FB01340297055E900760047 /* BZPageIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB0133F297055E900760047 /* BZPageIndicator.swift */; };
 		6FB01348297056D500760047 /* PlaygroundApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB01347297056D500760047 /* PlaygroundApp.swift */; };
@@ -32,6 +34,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6F23A99229716DD80074B8AE /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		6FB013302970552A00760047 /* libBZCarousel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBZCarousel.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FB0133A2970554200760047 /* BZCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BZCarousel.swift; sourceTree = "<group>"; };
 		6FB0133F297055E900760047 /* BZPageIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BZPageIndicator.swift; sourceTree = "<group>"; };
@@ -61,6 +64,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F23A99129716DCB0074B8AE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6F23A99229716DD80074B8AE /* Int.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		6FB013272970552A00760047 = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				6FB0133A2970554200760047 /* BZCarousel.swift */,
+				6F23A99129716DCB0074B8AE /* Extensions */,
 				6FB0133C2970559200760047 /* UI Components */,
 			);
 			path = BZCarousel;
@@ -226,6 +238,7 @@
 				6FB0133B2970554200760047 /* BZCarousel.swift in Sources */,
 				6FF1A709297088FF00BC187C /* BZPageIndicatorConfigurations.swift in Sources */,
 				6FB01340297055E900760047 /* BZPageIndicator.swift in Sources */,
+				6F23A99329716DD80074B8AE /* Int.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +249,7 @@
 				6FB0134A297056D500760047 /* ContentView.swift in Sources */,
 				6FB01348297056D500760047 /* PlaygroundApp.swift in Sources */,
 				6FB0135B29705AFD00760047 /* BZCarousel.swift in Sources */,
+				6F23A99429716DEE0074B8AE /* Int.swift in Sources */,
 				6FB0135C29705AFD00760047 /* BZPageIndicator.swift in Sources */,
 				6FF1A70A297089B100BC187C /* BZPageIndicatorConfigurations.swift in Sources */,
 			);

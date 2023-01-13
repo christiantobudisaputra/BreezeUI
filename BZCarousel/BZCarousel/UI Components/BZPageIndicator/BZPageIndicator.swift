@@ -11,19 +11,22 @@ import SwiftUI
 struct BZPageIndicator: View {
     private let configurations: Configurations
 
-    @Binding var numberOfPages: Int
-    @State var currentIndex = 0 {
+    @Binding var numberOfPages: Int {
         didSet {
-            if currentIndex == numberOfPages {
-                currentIndex = 0
+            if numberOfPages < 2 {
+                configurations.makeIdle()
             }
         }
     }
 
-    @State private var timer: AnyCancellable?
+    @Binding var currentIndex: Int
 
-    init(numberOfPages: Binding<Int>, configurations: Configurations) {
+    @State private var timer: AnyCancellable?
+    @State private var swipeListener: AnyCancellable?
+
+    init(numberOfPages: Binding<Int>, currentIndex: Binding<Int>, configurations: Configurations) {
         _numberOfPages = numberOfPages
+        _currentIndex = currentIndex
         self.configurations = configurations
     }
 
@@ -39,11 +42,9 @@ struct BZPageIndicator: View {
                     .animation(.default)
             }
         }
-        .onAppear(perform: runAutoSlideIfNeeded)
-    }
-
-    func slide() {
-        currentIndex += 1
+        .onAppear {
+            runAutoSlideIfNeeded()
+        }
     }
 
     @ViewBuilder
@@ -64,16 +65,18 @@ struct BZPageIndicator: View {
         }
     }
 
+    private func resetTimer() {
+        timer?.cancel()
+        runAutoSlideIfNeeded()
+    }
+
     private func runAutoSlideIfNeeded() {
-        if numberOfPages < 2 {
-            configurations.makeIdle()
-        }
         if case .autoSlide(let timeInterval) = configurations.presentation {
             timer = Timer
                 .publish(every: timeInterval, on: .main, in: .default)
                 .autoconnect()
                 .sink { _ in
-                    slide()
+                    currentIndex.increment(within: 0 ... numberOfPages)
                 }
         }
     }
@@ -81,14 +84,27 @@ struct BZPageIndicator: View {
 
 struct PageIndicatorView_Previews: PreviewProvider {
     static var previews: some View {
-        let configurations: BZPageIndicator.Configurations = {
+        Container()
+    }
+
+    struct Container: View {
+        @State private var currentIndex: Int = 0
+
+        private let configurations: BZPageIndicator.Configurations = {
             let configurations = BZPageIndicator.Configurations(
                 indicatorShape: .roundedLine(size: .normal),
                 activeIndicatorColor: .yellow,
-                presentation: .autoSlide(timeInterval: 3.0)
+                presentation: .autoSlide(timeInterval: 2.0)
             )
             return configurations
         }()
-        BZPageIndicator(numberOfPages: .constant(4), configurations: configurations)
+
+        var body: some View {
+            BZPageIndicator(
+                numberOfPages: .constant(5),
+                currentIndex: $currentIndex,
+                configurations: configurations
+            )
+        }
     }
 }
