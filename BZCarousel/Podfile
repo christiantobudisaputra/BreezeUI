@@ -1,5 +1,3 @@
-source 'https://github.com/christiantobudisaputra/BreezeUI.git'
-
 # Uncomment the next line to define a global platform for your project
  platform :ios, '14.0'
 
@@ -17,5 +15,5 @@ target 'Playground' do
   use_frameworks!
 
   # Pods for Playground
-  pod 'BZCarousel'
+  pod 'BZCarousel', :path => '../Podspecs'
 end
