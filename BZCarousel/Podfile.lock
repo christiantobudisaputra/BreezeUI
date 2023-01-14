@@ -1,3 +1,30 @@
-PODFILE CHECKSUM: edb9f103a889b2d9c3e466573c157de1b2e666a1
+PODS:
+  - BZCarousel (0.0.1):
+    - SDWebImageSwiftUI
+  - SDWebImage (5.14.3):
+    - SDWebImage/Core (= 5.14.3)
+  - SDWebImage/Core (5.14.3)
+  - SDWebImageSwiftUI (2.2.2):
+    - SDWebImage (~> 5.10)
+
+DEPENDENCIES:
+  - BZCarousel (from `../BZCarousel`)
+  - SDWebImageSwiftUI
+
+SPEC REPOS:
+  trunk:
+    - SDWebImage
+    - SDWebImageSwiftUI
+
+EXTERNAL SOURCES:
+  BZCarousel:
+    :path: "../BZCarousel"
+
+SPEC CHECKSUMS:
+  BZCarousel: de1b7a44f0adf54468b501723dd179d214721018
+  SDWebImage: 9c36e66c8ce4620b41a7407698dda44211a96764
+  SDWebImageSwiftUI: 54ded4115b4ac6cd60b78f61415f86d070892d98
+
+PODFILE CHECKSUM: 49ee67e47e43862fd44baa0df0cf18d672e61927
 
 COCOAPODS: 1.11.2
