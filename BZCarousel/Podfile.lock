@@ -8,7 +8,7 @@ PODS:
     - SDWebImage (~> 5.10)
 
 DEPENDENCIES:
-  - BZCarousel (from `../BZCarousel`)
+  - BZCarousel (from `.`)
   - SDWebImageSwiftUI
 
 SPEC REPOS:
@@ -18,13 +18,13 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   BZCarousel:
-    :path: "../BZCarousel"
+    :path: "."
 
 SPEC CHECKSUMS:
-  BZCarousel: de1b7a44f0adf54468b501723dd179d214721018
+  BZCarousel: 703a2bb282d692b251d9e0b0222ef871975faf73
   SDWebImage: 9c36e66c8ce4620b41a7407698dda44211a96764
   SDWebImageSwiftUI: 54ded4115b4ac6cd60b78f61415f86d070892d98
 
-PODFILE CHECKSUM: 49ee67e47e43862fd44baa0df0cf18d672e61927
+PODFILE CHECKSUM: 8c48f2efcf67a1163379a610afd29affe24d8bbf
 
 COCOAPODS: 1.11.2

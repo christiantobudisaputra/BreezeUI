@@ -9,24 +9,23 @@ import Combine
 import SwiftUI
 
 struct BZPageIndicator: View {
+    @EnvironmentObject private var carouselEvents: BZCarouselEvent
+
     private let configurations: Configurations
+    private let numberOfPages: Int
 
-    @Binding var numberOfPages: Int {
-        didSet {
-            if numberOfPages < 2 {
-                configurations.makeIdle()
-            }
-        }
-    }
-
-    @Binding var currentIndex: Int
-
+    @Binding private var currentIndex: Int
     @State private var timer: AnyCancellable?
-    @State private var swipeListener: AnyCancellable?
+    @State private var anyCancellable: AnyCancellable?
 
-    init(numberOfPages: Binding<Int>, currentIndex: Binding<Int>, configurations: Configurations) {
-        _numberOfPages = numberOfPages
+    init(numberOfPages: Int, currentIndex: Binding<Int>, configurations: Configurations) {
         _currentIndex = currentIndex
+
+        if numberOfPages < 2 {
+            configurations.makeIdle()
+        }
+
+        self.numberOfPages = numberOfPages
         self.configurations = configurations
     }
 
@@ -44,6 +43,13 @@ struct BZPageIndicator: View {
         }
         .onAppear {
             runAutoSlideIfNeeded()
+
+            anyCancellable = carouselEvents.swipeEvent
+                .print("swipe: ")
+                .sink {
+                    timer?.cancel()
+                    runAutoSlideIfNeeded()
+                }
         }
     }
 
@@ -70,6 +76,7 @@ struct BZPageIndicator: View {
             timer = Timer
                 .publish(every: timeInterval, on: .main, in: .default)
                 .autoconnect()
+                .print("timer: ")
                 .sink { _ in
                     currentIndex.increment(within: 0 ... numberOfPages)
                 }
@@ -96,7 +103,7 @@ struct PageIndicatorView_Previews: PreviewProvider {
 
         var body: some View {
             BZPageIndicator(
-                numberOfPages: .constant(5),
+                numberOfPages: 5,
                 currentIndex: $currentIndex,
                 configurations: configurations
             )

@@ -34,7 +34,7 @@ extension BZPageIndicator {
         init(
             indicatorShape: IndicatorShape = .circle(size: .normal),
             activeIndicatorColor: Color,
-            inactiveIndicatorColor: Color = .secondary.opacity(0.25),
+            inactiveIndicatorColor: Color = .secondary.opacity(0.5),
             presentation: Presentation
         ) {
             self.indicatorShape = indicatorShape

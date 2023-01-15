@@ -15,5 +15,5 @@ target 'Playground' do
   use_frameworks!
 
   # Pods for Playground
-  pod 'BZCarousel', :path => '../Podspecs'
+  pod 'BZCarousel', :path => '.'
 end
