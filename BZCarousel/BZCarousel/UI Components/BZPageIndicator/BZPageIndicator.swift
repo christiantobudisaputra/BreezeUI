@@ -45,7 +45,6 @@ struct BZPageIndicator: View {
             runAutoSlideIfNeeded()
 
             anyCancellable = carouselEvents.swipeEvent
-                .print("swipe: ")
                 .sink {
                     timer?.cancel()
                     runAutoSlideIfNeeded()
@@ -76,7 +75,6 @@ struct BZPageIndicator: View {
             timer = Timer
                 .publish(every: timeInterval, on: .main, in: .default)
                 .autoconnect()
-                .print("timer: ")
                 .sink { _ in
                     currentIndex.increment(within: 0 ... numberOfPages)
                 }

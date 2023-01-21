@@ -9,31 +9,33 @@ import Combine
 import SDWebImageSwiftUI
 import SwiftUI
 
-// @EnvironmentObject var myEvent: MyEvent
-
 class BZCarouselEvent: ObservableObject {
     @Published var swipeEvent = PassthroughSubject<Void, Never>()
 }
 
 struct BZCarousel<Content: View>: View {
     @StateObject var events: BZCarouselEvent = .init()
-    
-    @State private var currentIndex: Int = 0
 
-    private let contents: [Content]
-    private var numberOfPages: Int {
-        contents.count
-    }
-    
+    @State var contentIndex: Int = 1
+    @State var currentIndex: Int = 0
+    @State var contentSize: CGSize = CGSize(width: 0, height: 0)
+    @State var xContentOffset: CGFloat = 0
+    @State var xScrollViewOffset: CGFloat = 0
+    @State var contents: [Content]
+    let numberOfPages: Int
+
     init(contents: [Content]) {
         self.contents = contents
+        numberOfPages = contents.count
     }
 
     init(contentUrls: [String]) {
         let contents: [Content] = contentUrls.compactMap { urlString -> Content? in
-            guard let url: URL = URL(string: urlString) else {
+            guard let url: URL = URL(string: urlString)
+            else {
                 return nil
             }
+
             return AnyView(
                 WebImage(url: url)
                     .resizable()
@@ -43,7 +45,7 @@ struct BZCarousel<Content: View>: View {
         }
         self.init(contents: contents)
     }
-    
+
     var body: some View {
         if contents.isEmpty {
             EmptyView()
@@ -51,15 +53,39 @@ struct BZCarousel<Content: View>: View {
         else {
             content
                 .environmentObject(events)
+                .onAppear {
+                    guard !contents.isEmpty,
+                          let firstContent: Content = contents.first,
+                          let lastContent: Content = contents.last
+                    else {
+                        return
+                    }
+                    contents.insert(lastContent, at: 0)
+                    contents.append(firstContent)
+                }
+                .onChange(of: currentIndex) { [currentIndex] newValue in
+//                    if currentIndex == numberOfPages - 1, newValue == 0 {
+//                        contentIndex += 1
+//                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+//                            contentIndex = 0
+//                            xContentOffset = -CGFloat(contentIndex) * contentSize.width
+//                        }
+//                    }
+//                    else {
+//                        contentIndex += newValue - currentIndex
+//                    }
+//                    withAnimation(.spring()) {
+//                        xContentOffset = -CGFloat(contentIndex) * contentSize.width
+//                    }
+                }
         }
     }
 
     private var content: some View {
         ZStack {
             Color.clear
-                .background (
+                .background(
                     activeContent()
-                        .animation(.default)
                 )
 
             VStack {
@@ -76,8 +102,14 @@ struct BZCarousel<Content: View>: View {
             .padding(24)
         }
         .gesture(
-            DragGesture(minimumDistance: 32)
+            DragGesture()
+                .onChanged { distance in
+                    xScrollViewOffset = distance.translation.width
+                }
                 .onEnded { distance in
+                    withAnimation(.spring()) {
+                        xScrollViewOffset = 0
+                    }
                     let range: ClosedRange = 0 ... numberOfPages
                     if distance.translation.width > 0 {
                         currentIndex.decrement(within: range)
@@ -89,11 +121,28 @@ struct BZCarousel<Content: View>: View {
                     }
                 }
         )
+        .background(
+            GeometryReader { proxy in
+                Color.clear
+                    .onAppear {
+                        contentSize = proxy.size
+                    }
+            }
+        )
     }
 
     @ViewBuilder
     private func activeContent() -> some View {
-        contents[currentIndex]
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 0) {
+                ForEach(contents.indices, id: \.self) { index in
+                    contents[index]
+                        .frame(width: contentSize.width, height: contentSize.height)
+                }
+            }
+//            .offset(x: xContentOffset + xScrollViewOffset)
+        }
+        .disabled(false)
     }
 }
 

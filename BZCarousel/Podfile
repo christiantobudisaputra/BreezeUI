@@ -6,6 +6,7 @@ target 'BZCarousel' do
   use_frameworks!
 
   # Pods for BZCarousel
+  pod 'BZCore', :path => '../BZCore'
   pod 'SDWebImageSwiftUI'
 
 end

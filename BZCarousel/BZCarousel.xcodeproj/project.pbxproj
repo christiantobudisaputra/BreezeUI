@@ -38,7 +38,8 @@
 /* Begin PBXFileReference section */
 		335E21F6B00482AA509B3903 /* Pods-BZCarousel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BZCarousel.debug.xcconfig"; path = "Target Support Files/Pods-BZCarousel/Pods-BZCarousel.debug.xcconfig"; sourceTree = "<group>"; };
 		6F23A99229716DD80074B8AE /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
-		6F37351C2972A18300C9DC6D /* BZCarousel.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = BZCarousel.podspec; sourceTree = "<group>"; };
+		6F37351C2972A18300C9DC6D /* BZCarousel.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = BZCarousel.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		6F831E5F297BC0400030CD43 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		6FB013302970552A00760047 /* libBZCarousel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBZCarousel.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FB0133A2970554200760047 /* BZCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BZCarousel.swift; sourceTree = "<group>"; };
 		6FB0133F297055E900760047 /* BZPageIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BZPageIndicator.swift; sourceTree = "<group>"; };
@@ -106,6 +107,7 @@
 		6FB013272970552A00760047 = {
 			isa = PBXGroup;
 			children = (
+				6F831E5F297BC0400030CD43 /* LICENSE */,
 				6F37351C2972A18300C9DC6D /* BZCarousel.podspec */,
 				6FB013322970552A00760047 /* BZCarousel */,
 				6FB01346297056D500760047 /* Playground */,
